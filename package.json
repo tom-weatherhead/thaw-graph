@@ -1,0 +1,104 @@
+{
+	"name": "thaw-graph",
+	"version": "0.0.0",
+	"description": "A TypeScript graph library for Node.js.",
+	"keywords": [
+		"graph",
+		"graph theory",
+		"TypeScript"
+	],
+	"private": false,
+	"homepage": "https://github.com/tom-weatherhead/thaw-graph#readme",
+	"repository": "github:tom-weatherhead/thaw-graph",
+	"bugs": {
+		"url": "https://github.com/tom-weatherhead/thaw-graph/issues"
+	},
+	"// browser": "",
+	"main": "lib/main.js",
+	"types": "lib/main.d.ts",
+	"files": [
+		"lib/**/*"
+	],
+	"man": [],
+	"directories": {
+		"lib": "lib",
+		"// bin": "",
+		"man": "",
+		"doc": "",
+		"example": "",
+		"test": "test"
+	},
+	"scripts": {
+		"all": "npm run rebuild-online && npm pack && npm run deploy",
+		"rebuild-offline": "npm run clean-offline && npm run build-and-test",
+		"clean-offline": "rm -rf coverage",
+		"rebuild-online": "npm run clean-online && npm i && npm run build-and-test",
+		"clean-online": "npm run clean-offline && rm -rf node_modules && rm -f package-lock.json",
+		"build-and-test": "npm run prettier-check && npm run lint && npm run build && npm test",
+		"prettier-check": "prettier --check \"src/**/*.ts\" \"test/**/*.ts\"",
+		"prettier-list": "prettier --list-different \"src/**/*.ts\" \"test/**/*.ts\"",
+		"prettier-format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+		"lint": "eslint . --ext .js --ext .ts",
+		"build": "tsc",
+		"test": "jest --detectOpenHandles --forceExit",
+		"deploy": "eval mv $npm_package_name-$npm_package_version.tgz $(echo $npm_package_config_deploy_target_dir)/",
+		"prepare": "npm run build",
+		"prepublishOnly": "npm test && npm run lint",
+		"preversion": "npm run lint",
+		"version": "npm run prettier-format && git add -A src",
+		"postversion": "git push && git push --tags",
+		"re": "npm run prettier-format && npm run clean-offline && npm run build-and-test && npm pack && npm run deploy",
+		"loc": "git ls-files | grep -v package-lock.json | tr -d '\\r' | tr '\\n' '\\0' | xargs -0 wc -l",
+		"f": "npm run prettier-format && npm run all",
+		"start": "npm run all"
+	},
+	"config": {
+		"deploy_target_dir": "$NPM_PKG_DIR"
+	},
+	"publishConfig": {},
+	"dependencies": {},
+	"devDependencies": {
+		"@babel/core": "^7.12.9",
+		"@babel/preset-env": "^7.12.7",
+		"@babel/preset-typescript": "^7.12.7",
+		"@types/eslint": "^7.2.5",
+		"@types/jest": "^26.0.15",
+		"@types/node": "^14",
+		"@typescript-eslint/eslint-plugin": "^4.9.0",
+		"@typescript-eslint/parser": "^4.9.0",
+		"eslint": "^7.14.0",
+		"jest": "^26.6.3",
+		"prettier": "^2.2.1",
+		"rollup": "^2.34.1",
+		"semver": "^7.3.2",
+		"typescript": "^4.1.2"
+	},
+	"peerDependencies": {},
+	"// The correct name is bundledDependencies": true,
+	"// The name is bundleDependencies is also honoured": true,
+	"// bundledDependencies": "... is an array of package names",
+	"// bundledDependencies: See": "https://docs.npmjs.com/cli/v6/configuring-npm/package-json#bundleddependencies",
+	"bundledDependencies": [],
+	"optionalDependencies": {},
+	"engines": {
+		"node": ">= 10"
+	},
+	"os": [
+		"darwin",
+		"linux",
+		"win32"
+	],
+	"cpu": [
+		"ia32",
+		"x64"
+	],
+	"contributors": [
+		"Autonomous Weapons Systems Unlimited <killer@robots.com>",
+		"Buddy Guy <deadbeef@decafbad.gov>",
+		"Deprecated <deadc0de@obso1337.org>",
+		"Locutus <cube@cyb.org>",
+		"Sgt. Pepper <shoot1st@thinkl8r.mil>"
+	],
+	"author": "Tom Weatherhead <thaw@2hrd4u.org> (https://github.com/tom-weatherhead)",
+	"license": "MIT"
+}
