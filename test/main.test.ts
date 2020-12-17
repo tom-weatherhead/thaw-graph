@@ -2,13 +2,8 @@
 
 'use strict';
 
-import { sayHi } from '../lib/main';
-
-// 	// Assert
-// 	// test.expect(1);
-// 	// assert.deepEqual(resultThaw, resultD3fc);
-// 	expect(resultThaw).toStrictEqual(resultD3fc);
-// });
+// import { sayHi } from '../lib/main';
+import { sayHi } from '..';
 
 test('Nonsense', () => {
 	// Arrange

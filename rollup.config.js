@@ -19,7 +19,7 @@ export default [
 				plugins: [terser()]
 			},
 			{
-				file: "thaw-graph/haro.js",
+				file: "dist/thaw-graph.js",
 				name: "thaw-graph",
 				format: "umd",
 				compact: true,

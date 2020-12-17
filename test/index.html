@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="Tom Weatherhead" />
+        <meta name="description" content="thaw-graph" />
+		<meta name="keywords" content="graph" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<title>thaw-graph</title>
+		<base href="." /> <!-- Was "./" -->
+
+		<!-- ws:// is the WebSocket protocol -->
+		<!-- <meta http-equiv="Content-Security-Policy"
+		content="default-src 'self'" /> -->
+
+		<!-- <link rel="icon" type="image/png" href="assets/favicon.png" /> -->
+	</head>
+
+	<body>
+		<h1>thaw-graph</h1>
+
+		<script type="text/javascript" src="../dist/thaw-graph.js"></script>
+		<script type="text/javascript">
+			const thawGraph = window['thaw-graph'];
+
+			console.log('typeof window[\'thaw-graph\'] :', typeof thawGraph);
+
+			if (typeof thawGraph !== 'undefined') {
+				console.log('typeof window[\'thaw-graph\'].sayHi :', typeof thawGraph.sayHi);
+				console.log('Say hi:', thawGraph.sayHi());
+			}
+		</script>
+	</body>
+</html>
